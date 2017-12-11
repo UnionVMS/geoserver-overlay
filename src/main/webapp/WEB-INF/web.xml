@@ -67,31 +67,30 @@
         <filter-name>AuthenticationFilter</filter-name>
         <filter-class>eu.europa.ec.fisheries.uvms.rest.security.AuthenticationFilter</filter-class>
     </filter>
-    <filter-mapping>
-        <filter-name>AuthenticationFilter</filter-name>
-        <url-pattern>/uvms/wms/*</url-pattern>
-    </filter-mapping>
-    <filter-mapping>
-        <filter-name>AuthenticationFilter</filter-name>
-        <url-pattern>/uvms/wfs</url-pattern>
-    </filter-mapping>
-    <filter-mapping>
-        <filter-name>AuthenticationFilter</filter-name>
-        <url-pattern>/uvms/wcs</url-pattern>
-    </filter-mapping>
-    <filter-mapping>
-        <filter-name>AuthenticationFilter</filter-name>
-        <url-pattern>/uvms/ows</url-pattern>
-    </filter-mapping>
-    <filter-mapping>
-        <filter-name>AuthenticationFilter</filter-name>
-        <url-pattern>/uvms/gwc</url-pattern>
-    </filter-mapping>
-    <filter-mapping>
-        <filter-name>AuthenticationFilter</filter-name>
-        <url-pattern>/uvms</url-pattern>
-    </filter-mapping>   
-    
+<filter-mapping>
+       <filter-name>AuthenticationFilter</filter-name>
+       <url-pattern>/wms</url-pattern>
+   </filter-mapping>
+   <filter-mapping>
+       <filter-name>AuthenticationFilter</filter-name>
+       <url-pattern>/wfs</url-pattern>
+   </filter-mapping>
+   <filter-mapping>
+       <filter-name>AuthenticationFilter</filter-name>
+       <url-pattern>/wcs</url-pattern>
+   </filter-mapping>
+   <filter-mapping>
+       <filter-name>AuthenticationFilter</filter-name>
+       <url-pattern>/ows</url-pattern>
+   </filter-mapping>
+   <filter-mapping>
+       <filter-name>AuthenticationFilter</filter-name>
+       <url-pattern>/gwc</url-pattern>
+   </filter-mapping>
+   <filter-mapping>
+       <filter-name>AuthenticationFilter</filter-name>
+       <url-pattern>/uvms/*</url-pattern>
+   </filter-mapping>    
     
     <filter>
      <filter-name>FlushSafeFilter</filter-name>
