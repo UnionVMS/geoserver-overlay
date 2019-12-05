@@ -19,9 +19,9 @@
 		<project.scm.id>github</project.scm.id>
 		<scm.connection>scm:git:https://github.com/UnionVMS/geoserver-overlay.git</scm.connection>
         <scm.url>scm:git:https://github.com/UnionVMS/geoserver-overlay.git</scm.url>
-        <original.geoserver.version>2.12.1</original.geoserver.version>
+        <original.geoserver.version>2.12.1</original.geoserver.version>	
         <uvms.geoserver.version>2.8.7-SE</uvms.geoserver.version>
-        <uvms.commons.version>4.0.11</uvms.commons.version>    	
+        <usm4uvms.version>4.0.15.1-MARE-SNAPSHOT</usm4uvms.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -41,7 +41,7 @@
 			<groupId>eu.europa.ec.fisheries.uvms</groupId>
 			<artifactId>usm4uvms</artifactId>
 			<type>jar</type>
-			<version>${uvms.commons.version}</version>
+			<version>${usm4uvms.version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.slf4j</groupId>
@@ -59,6 +59,7 @@
 		</dependency>
 	</dependencies>
 	<build>
+		<finalName>${project.name}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -105,13 +106,13 @@
 								    <groupId>org.eclipse.jetty</groupId>
 								    <artifactId>jetty-servlets</artifactId>
 								    <version>9.3.22.v20171030</version>
-									<outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}/WEB-INF/lib/</outputDirectory>
+									<outputDirectory>${project.build.directory}/${project.artifactId}/WEB-INF/lib/</outputDirectory>
 								</artifactItem>
 								<artifactItem>
 								    <groupId>org.eclipse.jetty</groupId>
 								    <artifactId>jetty-util</artifactId>
 								    <version>9.3.22.v20171030</version>
-									<outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}/WEB-INF/lib/</outputDirectory>
+									<outputDirectory>${project.build.directory}/${project.artifactId}/WEB-INF/lib/</outputDirectory>
 								</artifactItem>								
 							</artifactItems>
 						</configuration>
@@ -129,7 +130,7 @@
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}/</outputDirectory>
+							<outputDirectory>${project.build.directory}/${project.artifactId}/</outputDirectory>
 							<resources>
 								<resource>
 									<directory>${project.build.directory}/uvms-gs-web-app/</directory>
