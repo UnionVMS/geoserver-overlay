@@ -1,14 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>fish.focus.maven</groupId>
-        <artifactId>focus-pom</artifactId>
-        <version>1.13</version>
+        <groupId>eu.europa.ec.fisheries.uvms</groupId>
+        <artifactId>mare-pom</artifactId>
+        <version>1.6.0-MARE-SNAPSHOT</version>
         <relativePath />
     </parent>
 	<groupId>eu.europa.ec.fisheries.uvms.geoserver.web.overlay</groupId>
 	<artifactId>gs-web-app</artifactId>
-	<version>2.12.3</version>
+	<version>${uvms.geoserver-overlay.version}</version>
 	<packaging>war</packaging>
 	<url>https://github.com/UnionVMS/geoserver-overlay</url>
 	<scm>
@@ -21,7 +21,7 @@
         <scm.url>scm:git:https://github.com/UnionVMS/geoserver-overlay.git</scm.url>
         <original.geoserver.version>2.12.1</original.geoserver.version>	
         <uvms.geoserver.version>2.8.7-SE</uvms.geoserver.version>
-        <usm4uvms.version>4.0.15.1-MARE-SNAPSHOT</usm4uvms.version>
+        <usm4uvms.version>${uvms.uvms4usm.version}</usm4uvms.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -61,6 +61,34 @@
 	<build>
 		<finalName>${project.name}</finalName>
 		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>flatten-maven-plugin</artifactId>
+				<version>1.1.0</version>
+				<configuration>
+					<updatePomFile>true</updatePomFile>
+					<!-- We need to keep all plugin configurations. We only want to resolve variables revision, sha1 and changelist
+						 If we use other modes we will break plugin config and versions inheritance
+						 https://www.mojohaus.org/flatten-maven-plugin/apidocs/org/codehaus/mojo/flatten/FlattenMode.html  -->
+					<flattenMode>resolveCiFriendliesOnly</flattenMode>
+				</configuration>
+				<executions>
+					<execution>
+						<id>flatten</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>flatten</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>flatten.clean</id>
+						<phase>clean</phase>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>

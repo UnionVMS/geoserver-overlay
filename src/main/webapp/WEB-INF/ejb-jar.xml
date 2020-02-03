@@ -4,7 +4,7 @@
          version="3.1">
 <enterprise-beans>
   <session>
-	  <ejb-name>JwtTokenHandler</ejb-name>
+	  <ejb-name>DefaultJwtTokenHandler</ejb-name>
 	  <business-remote>eu.europa.ec.mare.usm.jwt.JwtTokenHandler</business-remote>
 	  <ejb-class>eu.europa.ec.mare.usm.jwt.DefaultJwtTokenHandler</ejb-class>
 	  <session-type>Singleton</session-type>  
