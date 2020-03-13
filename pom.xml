@@ -1,27 +1,28 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>fish.focus.maven</groupId>
-        <artifactId>focus-pom</artifactId>
-        <version>1.19</version>
-        <relativePath />
-    </parent>
+	<parent>
+		<groupId>fish.focus.maven</groupId>
+		<artifactId>focus-pom</artifactId>
+		<version>1.19</version>
+		<relativePath />
+	</parent>
 	<groupId>eu.europa.ec.fisheries.uvms.geoserver.web.overlay</groupId>
 	<artifactId>gs-web-app</artifactId>
 	<version>2.16.0.2-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<url>https://github.com/UnionVMS/geoserver-overlay</url>
 	<scm>
-        <connection>${scm.connection}</connection>
-        <tag>HEAD</tag>
-    </scm>	
+		<connection>${scm.connection}</connection>
+		<tag>HEAD</tag>
+	</scm>
 	<properties>
 		<project.scm.id>github</project.scm.id>
 		<scm.connection>scm:git:https://github.com/UnionVMS/geoserver-overlay.git</scm.connection>
-        <scm.url>scm:git:https://github.com/UnionVMS/geoserver-overlay.git</scm.url>
-        <original.geoserver.version>2.16.0</original.geoserver.version>
-        <uvms.geoserver.version>2.8.8-SE</uvms.geoserver.version>
-        <uvms.usm4uvms.version>4.0.23</uvms.usm4uvms.version>
+		<scm.url>scm:git:https://github.com/UnionVMS/geoserver-overlay.git</scm.url>
+		<original.geoserver.version>2.16.0</original.geoserver.version>
+		<uvms.usm4uvms.version>4.0.23</uvms.usm4uvms.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -66,34 +67,6 @@
 				<version>3.0.2</version>
 				<executions>
 					<execution>
-						<id>unpack</id>
-						<phase>generate-resources</phase>
-						<goals>
-							<goal>unpack</goal>
-						</goals>
-						<configuration>
-							<artifactItems>
-								<artifactItem>
-									<groupId>eu.europa.ec.fisheries.uvms.geoserver.web</groupId>
-									<artifactId>gs-web-app</artifactId>
-									<classifier>postgres</classifier>
-									<version>${uvms.geoserver.version}</version>
-									<type>war</type>
-									<overWrite>false</overWrite>
-									<outputDirectory>${project.build.directory}/uvms-gs-web-app</outputDirectory>
-								</artifactItem>
-								<artifactItem>
-									<groupId>org.geoserver.web</groupId>
-									<artifactId>gs-web-app</artifactId>
-									<version>${original.geoserver.version}</version>
-									<type>war</type>
-									<overWrite>false</overWrite>
-									<outputDirectory>${project.build.directory}/org-gs-web-app</outputDirectory>
-								</artifactItem>
-							</artifactItems>
-						</configuration>
-					</execution>
-					<execution>
 						<id>copy</id>
 						<phase>generate-resources</phase>
 						<goals>
@@ -102,53 +75,18 @@
 						<configuration>
 							<artifactItems>
 								<artifactItem>
-								    <groupId>org.eclipse.jetty</groupId>
-								    <artifactId>jetty-servlets</artifactId>
-								    <version>9.3.22.v20171030</version>
+									<groupId>org.eclipse.jetty</groupId>
+									<artifactId>jetty-servlets</artifactId>
+									<version>9.3.22.v20171030</version>
 									<outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}/WEB-INF/lib/</outputDirectory>
 								</artifactItem>
 								<artifactItem>
-								    <groupId>org.eclipse.jetty</groupId>
-								    <artifactId>jetty-util</artifactId>
-								    <version>9.3.22.v20171030</version>
+									<groupId>org.eclipse.jetty</groupId>
+									<artifactId>jetty-util</artifactId>
+									<version>9.3.22.v20171030</version>
 									<outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}/WEB-INF/lib/</outputDirectory>
-								</artifactItem>								
+								</artifactItem>
 							</artifactItems>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.0.2</version>
-				<executions>
-					<execution>
-						<id>copy-resources</id>
-						<phase>compile</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}/</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${project.build.directory}/uvms-gs-web-app/</directory>
-									<includes>
-										<include>data/workspaces/**/*.*</include>
-										<include>data/legendsamples/*</include>
-										<include>data/styles/countries*</include>
-										<include>data/styles/eez*</include>
-										<include>data/styles/fao*</include>
-										<include>data/styles/fmz*</include>
-										<include>data/styles/gfcm*</include>
-										<include>data/styles/port*</include>
-										<include>data/styles/rfmo*</include>
-										<include>data/styles/stat*</include>
-										<include>data/styles/userareas*</include>
-									</includes>
-									<filtering>false</filtering>
-								</resource>
-							</resources>
 						</configuration>
 					</execution>
 				</executions>
@@ -156,11 +94,9 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
-				<version>3.2.0</version>
 				<configuration>
 					<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
-					<dependentWarExcludes>WEB-INF/web.xml,data/workspaces/**/*.*</dependentWarExcludes>
-					<!-- <dependentWarExcludes>WEB-INF/web.xml,data/workspaces/**/*.*,data/demo/**/*.*,data/coverages/**/*.*,data/security/layers.properties</dependentWarExcludes> -->
+					<dependentWarExcludes>WEB-INF/web.xml,data/**/*.*</dependentWarExcludes>
 					<overlays>
 						<overlay>
 							<id>gs-web-app</id>
