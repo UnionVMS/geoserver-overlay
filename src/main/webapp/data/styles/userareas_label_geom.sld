@@ -24,9 +24,15 @@
 							<sld:CssParameter name="stroke-width">2.0</sld:CssParameter>
                         </sld:Stroke>
                     </sld:PolygonSymbolizer>
-					<sld:TextSymbolizer>
+                    <sld:TextSymbolizer>
+                        <Geometry>
+                            <ogc:Function name="interiorPoint">
+                                <ogc:PropertyName>geom</ogc:PropertyName>
+                            </ogc:Function>
+                        </Geometry>
                         <sld:Label>
-                            <ogc:PropertyName>name</ogc:PropertyName>
+                            <ogc:PropertyName>name</ogc:PropertyName><![CDATA[
+                            ]]> [<ogc:PropertyName>code</ogc:PropertyName>]
                         </sld:Label>
                         <sld:Font>
                             <sld:CssParameter name="font-family">Arial</sld:CssParameter>
@@ -55,6 +61,8 @@
                         <sld:Fill>
                             <sld:CssParameter name="fill">#000000</sld:CssParameter>
                         </sld:Fill>
+                        <VendorOption name="conflictResolution">true</VendorOption>
+                        <VendorOption name="maxDisplacement">20</VendorOption>
                     </sld:TextSymbolizer>
                 </sld:Rule>
             </sld:FeatureTypeStyle>
