@@ -20,7 +20,7 @@
 		<scm.connection>scm:git:https://github.com/UnionVMS/geoserver-overlay.git</scm.connection>
 		<scm.url>scm:git:https://github.com/UnionVMS/geoserver-overlay.git</scm.url>
 		<original.geoserver.version>2.16.2</original.geoserver.version>
-		<uvms.usm4uvms.version>4.1.0</uvms.usm4uvms.version>
+		<uvms.usm4uvms.version>4.1.9</uvms.usm4uvms.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -41,20 +41,6 @@
 			<artifactId>usm4uvms</artifactId>
 			<type>jar</type>
 			<version>${uvms.usm4uvms.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-api</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>net.sf.ehcache.internal</groupId>
-					<artifactId>ehcache-core</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>commons-io</groupId>
-					<artifactId>commons-io</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 	</dependencies>
 	<build>

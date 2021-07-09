@@ -62,35 +62,11 @@
         <param-value>classpath*:/applicationContext.xml classpath*:/applicationSecurityContext.xml</param-value>
     </context-param>
 
-    <!--add USM JWToken validation to restrict the MAPFISH print-->
+    <!--add USM JWToken validation to restrict access to Geoserver-->
     <filter>
         <filter-name>AuthenticationFilter</filter-name>
         <filter-class>eu.europa.ec.fisheries.uvms.rest.security.AuthenticationFilter</filter-class>
     </filter>
-<filter-mapping>
-       <filter-name>AuthenticationFilter</filter-name>
-       <url-pattern>/wms</url-pattern>
-   </filter-mapping>
-   <filter-mapping>
-       <filter-name>AuthenticationFilter</filter-name>
-       <url-pattern>/wfs</url-pattern>
-   </filter-mapping>
-   <filter-mapping>
-       <filter-name>AuthenticationFilter</filter-name>
-       <url-pattern>/wcs</url-pattern>
-   </filter-mapping>
-   <filter-mapping>
-       <filter-name>AuthenticationFilter</filter-name>
-       <url-pattern>/ows</url-pattern>
-   </filter-mapping>
-   <filter-mapping>
-       <filter-name>AuthenticationFilter</filter-name>
-       <url-pattern>/gwc</url-pattern>
-   </filter-mapping>
-   <filter-mapping>
-       <filter-name>AuthenticationFilter</filter-name>
-       <url-pattern>/uvms/*</url-pattern>
-   </filter-mapping>    
     
     <filter>
      <filter-name>FlushSafeFilter</filter-name>
@@ -234,7 +210,32 @@
         <filter-name>cross-origin</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-   
+
+    <filter-mapping>
+        <filter-name>AuthenticationFilter</filter-name>
+        <url-pattern>/wms</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AuthenticationFilter</filter-name>
+        <url-pattern>/wfs</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AuthenticationFilter</filter-name>
+        <url-pattern>/wcs</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AuthenticationFilter</filter-name>
+        <url-pattern>/ows</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AuthenticationFilter</filter-name>
+        <url-pattern>/gwc</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AuthenticationFilter</filter-name>
+        <url-pattern>/uvms/*</url-pattern>
+    </filter-mapping>
+
     <filter-mapping>
       <filter-name>FlushSafeFilter</filter-name>
       <url-pattern>/*</url-pattern>
