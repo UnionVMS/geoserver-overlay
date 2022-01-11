@@ -8,7 +8,7 @@
 	</parent>
 	<groupId>eu.europa.ec.fisheries.uvms.geoserver.web.overlay</groupId>
 	<artifactId>gs-web-app</artifactId>
-	<version>2.16.2.3-SNAPSHOT</version>
+	<version>2.19.4.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<url>https://github.com/UnionVMS/geoserver-overlay</url>
 	<scm>
@@ -19,7 +19,7 @@
 		<project.scm.id>github</project.scm.id>
 		<scm.connection>scm:git:https://github.com/UnionVMS/geoserver-overlay.git</scm.connection>
 		<scm.url>scm:git:https://github.com/UnionVMS/geoserver-overlay.git</scm.url>
-		<original.geoserver.version>2.16.2</original.geoserver.version>
+		<original.geoserver.version>2.19.4</original.geoserver.version>
 		<uvms.usm4uvms.version>4.1.9</uvms.usm4uvms.version>
 	</properties>
 	<dependencies>
