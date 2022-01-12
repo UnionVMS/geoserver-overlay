@@ -61,13 +61,13 @@
 								<artifactItem>
 									<groupId>org.eclipse.jetty</groupId>
 									<artifactId>jetty-servlets</artifactId>
-									<version>9.3.22.v20171030</version>
+									<version>9.4.36.v20210114</version>
 									<outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}/WEB-INF/lib/</outputDirectory>
 								</artifactItem>
 								<artifactItem>
 									<groupId>org.eclipse.jetty</groupId>
 									<artifactId>jetty-util</artifactId>
-									<version>9.3.22.v20171030</version>
+									<version>9.4.36.v20210114</version>
 									<outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}/WEB-INF/lib/</outputDirectory>
 								</artifactItem>
 							</artifactItems>
